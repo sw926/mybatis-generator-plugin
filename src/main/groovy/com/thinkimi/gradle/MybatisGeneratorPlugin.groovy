@@ -1,6 +1,8 @@
 package com.thinkimi.gradle
 
 import org.gradle.api.Plugin
+import org.gradle.api.file.FileCollection
+import org.gradle.api.file.FileTree
 import org.gradle.api.internal.project.ProjectInternal
 
 /**
@@ -14,6 +16,9 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
         MybatisGeneratorTask task = project.tasks.create("mbGenerator", MybatisGeneratorTask);
         project.configurations.create('mybatisGenerator').with {
             description = 'The cargo libraries to be used for this project.'
+        }
+        project.configurations.getByName("").files {
+
         }
         project.extensions.create("mybatisGenerator", MybatisGeneratorExtension)
 
